@@ -1,0 +1,4 @@
+interface:
+  display_name: "Public Release Audit"
+  short_description: "Audit a repository before public GitHub release"
+  default_prompt: "Use $public-release-audit to inspect this repository for secrets, privacy leaks, risky workflows, and accidental artifacts before publication."
