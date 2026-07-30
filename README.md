@@ -1,7 +1,11 @@
-# Codex Public Release Audit
+# Codex 公開發布前的隱私與安全稽核工具
 
 [![Validate Skill](https://github.com/Fuika0306/codex-public-release-audit/actions/workflows/validate.yml/badge.svg)](https://github.com/Fuika0306/codex-public-release-audit/actions/workflows/validate.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
+這是一個在 Git 倉庫公開前使用的唯讀 Codex Skill。它會檢查密鑰、個資、
+Git 歷史、敏感檔案與 GitHub Actions 設定，並避免在報告中輸出命中的
+敏感值。
 
 A local, read-only, redacting release gate for Git repositories and Codex Skills.
 It checks the content you are about to publish and reachable Git history without
@@ -96,11 +100,12 @@ python -X utf8 skills/public-release-audit/tests/test_audit_release.py
 The test suite uses disposable local Git repositories and fake credentials. It
 does not call a network service.
 
-## ????
+## 中文摘要
 
-?????????????? GitHub ??????????????
-`--mode all` ????????? reachable Git history??????????
-?????????????????????????Email ? IP ???
+這個 Skill 用於在倉庫公開到 GitHub 前進行唯讀安全與隱私稽核。
+`--mode all` 會同時檢查目前內容與可到達的 Git 歷史，避免已刪除的密鑰
+仍留在歷史中。輸出只保留規則、嚴重度、相對路徑與行號，不會顯示命中的
+Token、Email、IP、Remote URL 或符號連結目標。
 
 ## License
 
